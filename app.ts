@@ -26,7 +26,8 @@ import cors from 'cors'
 
 import mongoose from 'mongoose'
 import compression from 'compression'
-import * as user from './routers/index'
+// import * as user from './routers/index'
+// const routing = require("./routers/indexs.ts");
 // import mongoose = require('mongoose')
 
 // const db = require
@@ -77,9 +78,15 @@ db.on('open', function (err: any) {
 // app.use('/user', express.static(__dirname + '/api/user'))
 // require('./routers/admin/index')(app)
 // require('./routers/index/user')(app)
-require('./routers/user/index')(app)
-require('./routers/OAuth/index')(app)
-require('./routers/index')(app)
+// require('./routers/user/index')(app)
+// require('./routers/OAuth/index')(app)
+// require('./routers/index')(app)
+
+// routing(app)
+const user = require("./routers/user.ts");
+// require('./routers/user')(app)
+app.use('/user', user)
+
 // app.use('/user', user);
 // app.use("/user",require("./routers/user/index"))
 // app.listen(8091, () => {
