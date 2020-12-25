@@ -4,14 +4,16 @@
  * @since:  2020/05/04
  * @update: 2020/05/04
  */
-import mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 // 声明一个数据集 对象
+
 const userSchema = new Schema({
     username: {
         type: String,
         index: true,
-        unique: true
+        unique: true,
+        // required: true,
     },
     password: {
         type: String
@@ -23,6 +25,6 @@ const userSchema = new Schema({
         default: Date.now()
     }
 });
-
 // 将数据模型暴露出去 = 将表的数据结构与表关联起来
-module.exports = mongoose.model('users', userSchema);
+const User:any = mongoose.model('users', userSchema);
+export default User;
